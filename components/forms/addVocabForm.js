@@ -12,13 +12,13 @@ const addVocabForm = (obj = {}) => {
       </div>
       <div class="form-group">
         <label for="definition">Definition</label>
-        <textarea class="form-control" placeholder="Vocabulary Definition" id="description" style="height: 100px">${obj.definition || ''}</textarea>
+        <textarea class="form-control" placeholder="Vocabulary Definition" id="definition" style="height: 100px">${obj.definition || ''}</textarea>
       </div>
       <div class="form-group" id="select-language">
       <label for="title">Select Language</label>
         <input type="text" class="form-control" id="title" aria-describedby="vocabLanguage" placeholder="Enter Vocabulary Language" value="${obj.language || ''}" required>
       </div>
-      <button type="submit" class="btn btn-primary">Submit Book
+      <button type="submit" class="btn btn-primary">Submit Vocab
       </button>
     </form>`;
 

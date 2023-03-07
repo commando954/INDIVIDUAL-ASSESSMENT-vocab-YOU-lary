@@ -8,8 +8,8 @@ const navigationEvents = (user) => {
   document.querySelector('#logout-button')
     .addEventListener('click', signOut);
 
-  // TODO: ALL BOOKS
-  document.querySelector('#all-books').addEventListener('click', () => {
+  // TODO: ALL VOCAB
+  document.querySelector('#all-vocab').addEventListener('click', () => {
     getVocab(user.uid).then(showVocab);
   });
 
@@ -20,7 +20,7 @@ const navigationEvents = (user) => {
 
     // WHEN THE USER PRESSES ENTER, MAKE THE API CALL AND CLEAR THE INPUT
     if (e.keyCode === 13) {
-      // MAKE A CALL TO THE API TO FILTER ON THE BOOKS
+      // MAKE A CALL TO THE API TO FILTER ON THE VOCAB
       // IF THE SEARCH DOESN'T RETURN ANYTHING, SHOW THE EMPTY STORE
       // OTHERWISE SHOW THE STORE
 

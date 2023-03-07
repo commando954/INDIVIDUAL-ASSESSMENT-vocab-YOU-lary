@@ -1,9 +1,9 @@
 import client from '../utils/client';
-// API CALLS FOR BOOKS
+// API CALLS FOR VOCAB
 // import from 'utils/data/books.json'
 
 const endpoint = client.databaseURL;
-// TODO: GET BOOKS
+// TODO: GET VOCAB
 const getVocab = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabulary.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
@@ -22,7 +22,7 @@ const getVocab = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: DELETE BOOK
+// TODO: DELETE VOCAB
 const deleteVocab = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabulary/${firebaseKey}.json`, {
     method: 'DELETE',
@@ -35,7 +35,7 @@ const deleteVocab = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: GET SINGLE BOOK
+// TODO: GET SINGLE VOCAB
 const getSingleVocab = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabulary/${firebaseKey}.json`, {
     method: 'GET',
@@ -48,7 +48,7 @@ const getSingleVocab = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: CREATE BOOK // payload is taco
+// TODO: CREATE VOCAB // payload is taco
 const createVocab = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabulary.json`, {
     method: 'POST',
@@ -62,7 +62,7 @@ const createVocab = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// TODO: UPDATE BOOK
+// TODO: UPDATE VOCAB
 const updateVocab = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabulary/${payload.firebaseKey}.json`, {
     method: 'PATCH',
