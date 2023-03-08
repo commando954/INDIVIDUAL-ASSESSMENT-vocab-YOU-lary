@@ -12,18 +12,30 @@ const showVocab = (array) => {
   const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-vocab-btn">Add Vocabulary Word</button>';
   renderToDOM('#add-button', btnString);
 
+  const vocabFilter = `
+  <div class="filter">
+    <p class="center" id="filter-vocab-language-text"><b>Filter Language</b></p>
+      <div class="filter-list">
+        <button class="selector" id="all-btn">All</button>
+        <button class="selector" id="html-btn">HTML</button>
+        <button class="selector" id="css-btn">CSS</button>
+        <button class="selector" id="js-btn">JavaScript</button>
+      </div>
+  </div>`;
+  renderToDOM('#vocabFilter', vocabFilter);
+
   let domString = '';
   array.forEach((item) => {
     domString += `
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">${item.title}</h5>
-          <h4 class="card-language">${item.language}</h4>
-          <p class="card-definition">${item.definition}</p>
-            <hr>
-            <i class="btn btn-success fas fa-eye" id="view-vocab-btn--${item.firebaseKey}"></i>
-            <i id="edit-vocab-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
-            <i id="delete-vocab-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h4 class="card-title">${item.title}</h4>
+      <h5 class="card-subtitle mb-2 text-muted">${item.definition}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${item.language}</h6>
+      <hr>
+      <div class="btn btn-success" id="view-vocab-btn--${item.firebaseKey}">Select</div>
+      <div class="btn btn-info" id="edit-vocab-btn--${item.firebaseKey}">Edit</div>
+      <div class="btn btn-danger" id="delete-vocab-btn--${item.firebaseKey}">Delete</div>
         </div>
       </div>`;
   });

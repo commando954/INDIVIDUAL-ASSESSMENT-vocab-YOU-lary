@@ -4,8 +4,8 @@ import { getSingleVocab } from './vocabData';
 const getVocabDetails = (firebaseKey) => new Promise((resolve, reject) => {
   // GET SINGLE VOCAB
   getSingleVocab(firebaseKey).then((vocabularyObject) => { // returns single vocab object
-  //  getSingleVocab(vocabularyObject.object) // we nest this promise so that we can use the vocab object
-    .then(() => resolve({ ...vocabularyObject }));
+    getSingleVocab(firebaseKey) // we nest this promise so that we can use the vocab object
+      .then(() => resolve({ ...vocabularyObject }));
   }).catch(reject);
 });
 
