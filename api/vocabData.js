@@ -1,6 +1,5 @@
 import client from '../utils/client';
 // API CALLS FOR VOCAB
-// import from 'utils/data/books.json'
 
 const endpoint = client.databaseURL;
 // TODO: GET VOCAB
@@ -76,10 +75,76 @@ const updateVocab = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// FILTER HTML VOCAB
+const htmlVocab = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabulary.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const htmlText = Object.values(data);
+        const filteredData = htmlText.filter((item) => item.language === 'HTML');
+        resolve(filteredData);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
+// FILTER CSS VOCAB
+const cssVocab = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabulary.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const cssStyle = Object.values(data);
+        const filteredData = cssStyle.filter((item) => item.language === 'CSS');
+        resolve(filteredData);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
+// FILTER JAVASCRIPT VOCAB
+const jsVocab = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabulary.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const javaScript = Object.values(data);
+        const filteredData = javaScript.filter((item) => item.language === 'JavaScript');
+        resolve(filteredData);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 export {
   getVocab,
   createVocab,
   deleteVocab,
   getSingleVocab,
-  updateVocab
+  updateVocab,
+  htmlVocab,
+  cssVocab,
+  jsVocab
 };

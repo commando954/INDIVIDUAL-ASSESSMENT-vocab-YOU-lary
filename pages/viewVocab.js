@@ -3,6 +3,7 @@ import renderToDOM from '../utils/renderToDom';
 
 const viewVocab = (obj) => {
   clearDom();
+
   const domString = `
   <div class="mt-5 d-flex flex-wrap">
    <div class="text-brown ms-5 details">

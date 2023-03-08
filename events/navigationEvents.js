@@ -1,4 +1,6 @@
-import { getVocab } from '../api/vocabData';
+import {
+  getVocab, htmlVocab, cssVocab, jsVocab
+} from '../api/vocabData';
 import { signOut } from '../utils/auth';
 import { showVocab } from '../pages/vocab';
 
@@ -13,20 +15,20 @@ const navigationEvents = (user) => {
     getVocab(user.uid).then(showVocab);
   });
 
-  // STRETCH: SEARCH
-  document.querySelector('#search').addEventListener('keyup', (e) => {
-    const searchValue = document.querySelector('#search').value.toLowerCase();
-    console.warn(searchValue);
+  document.querySelector('#all-btn').addEventListener('click', () => {
+    getVocab(user.uid).then(showVocab);
+  });
 
-    // WHEN THE USER PRESSES ENTER, MAKE THE API CALL AND CLEAR THE INPUT
-    if (e.keyCode === 13) {
-      // MAKE A CALL TO THE API TO FILTER ON THE VOCAB
-      // IF THE SEARCH DOESN'T RETURN ANYTHING, SHOW THE EMPTY STORE
-      // OTHERWISE SHOW THE STORE
+  document.querySelector('#html-vocab').addEventListener('click', () => {
+    htmlVocab(user.uid).then(showVocab);
+  });
 
-      document.querySelector('#search').value = '';
-    }
+  document.querySelector('#css-vocab').addEventListener('click', () => {
+    cssVocab(user.uid).then(showVocab);
+  });
+
+  document.querySelector('#js-vocab').addEventListener('click', () => {
+    jsVocab(user.uid).then(showVocab);
   });
 };
-
 export default navigationEvents;

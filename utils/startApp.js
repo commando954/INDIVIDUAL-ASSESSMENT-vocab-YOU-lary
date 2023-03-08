@@ -14,7 +14,9 @@ const startApp = (user) => {
   navBar();
   logoutButton();
   navigationEvents(user);
-  getVocab(user.id).then((vocabulary) => showVocab(vocabulary));
+
+  getVocab(user.uid).then((vocabulary) => showVocab(vocabulary));
+  console.warn(user.uid);
 };
 
 export default startApp;
