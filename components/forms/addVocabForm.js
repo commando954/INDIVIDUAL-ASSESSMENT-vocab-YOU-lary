@@ -7,10 +7,10 @@ const langArray = ['Javascript', 'HTML', 'CSS'];
 const addVocabForm = (uid, obj = {}) => {
   console.warn(uid);
   clearDom();
-  let domString = `<form id="${obj.firebaseKey ? `update-word--${obj.firebaseKey}` : 'submit-word'}" class="mb-4"> 
+  let domString = `<form id="${obj.firebaseKey ? `update-vocab--${obj.firebaseKey}` : 'submit-vocab'}" class="mb-4"> 
       <div class="form-group">
-        <label for="title">Word</label>
-        <input type="text" class="form-control" id="title" aria-describedby="wordTitle" placeholder="Enter Word" value="${obj.title || ''}" required>
+        <label for="title">Vocab</label>
+        <input type="text" class="form-control" id="title" aria-describedby="vocabTitle" placeholder="Enter Vocab" value="${obj.title || ''}" required>
       </div>
       <div class="form-group">
         <label for="definition">Definition</label>
@@ -26,7 +26,7 @@ const addVocabForm = (uid, obj = {}) => {
          value="${lang}" ${lang === obj.language ? 'selected' : ''}>${lang}</option>`;
   });
 
-  domString += `</select><button type="submit" class="btn btn-primary">Submit Word
+  domString += `</select><button type="submit" class="btn btn-primary">Submit Vocab
     </button></form>`;
 
   renderToDOM('#form-container', domString);
