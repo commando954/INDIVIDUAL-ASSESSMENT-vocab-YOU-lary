@@ -30,5 +30,17 @@ const navigationEvents = (user) => {
   document.querySelector('#js-vocab').addEventListener('click', () => {
     jsVocab(user.uid).then(showVocab);
   });
+
+  document.querySelector('#html-btn').addEventListener('click', () => {
+    htmlVocab(user.uid).then(showVocab);
+  });
+
+  document.querySelector('#css-btn').addEventListener('click', () => {
+    cssVocab(user.uid).then(showVocab);
+  });
+
+  document.querySelector('#js-btn').addEventListener('click', () => {
+    jsVocab(user.uid).then(showVocab);
+  });
 };
 export default navigationEvents;
