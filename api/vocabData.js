@@ -77,7 +77,7 @@ const updateVocab = (payload) => new Promise((resolve, reject) => {
 
 // FILTER HTML VOCAB
 const htmlVocab = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocabulary.json?orderBy="uid"&equalTo="${uid}"`, {
+  fetch(`${endpoint}/vocabulary.json?orderBy="language"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
